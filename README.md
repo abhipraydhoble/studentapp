@@ -1,14 +1,14 @@
 # $${\color{red} \textbf{Project}: \textbf{Student}  \ \textbf{App}}$$
 
 
-### $\color{{green} \ \textbf{Prerequisite:}}$    
+### $$\color{{green} \ \textbf{Prerequisite:}}$$    
 - Ec2 instance 
 - Java-1.8 
 - Tomcat 
 - Git 
 - RDS 
 
-### ${\color{blue} \textbf{Launch} \textbf{EC2}  \ \textbf{Instance}}$
+### $${\color{blue} \textbf{Launch} \textbf{EC2}  \ \textbf{Instance}}$$
 Allow Ports security group: 
 22 = SSH 
 8080 = Tomcat 
@@ -16,17 +16,17 @@ Allow Ports security group:
 
 ![instance](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/d7851745-1bfe-4f92-b7bb-18555f2dfd45)
 
-$\color{red}{Connect \ to \ instance:}$
+$$\color{red}{Connect \ to \ instance:}$$
 
 ![connect](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/727778ca-e9ee-43c9-ab85-ff055f94d4a2)
 
 ![cli](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/0e6244e1-489c-42c1-ae89-27c8b7c37792)
 
-- $\color{red}{install \ java }$
+- $$\color{red}{install \ java }$$
 ````
 yum install java-1.8* -y 
 ````
-- $\color{red}{Install \ Tomcat }$
+- $$\color{red}{Install \ Tomcat }$$
 Search tomcat 8 download  on browser
 
 ![tomcat](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/8e622609-b7df-4f26-b8e3-e787e5e16c95)
@@ -40,26 +40,26 @@ cd bin
 [catalina.sh  -->this file is neccessary to start tomcat] 
 chmod +x catalina.sh     [ give execute permission to file] 
 ````
-### ${\color{blue} \textbf{Start} \textbf{Stop}  \ \textbf{Tomcat}}$
+### $${\color{blue} \textbf{Start} \textbf{Stop}  \ \textbf{Tomcat}}$$
 ````
 sh catalina.sh start   [ tomcat started ]
 sh catalina.sh stop 
 ````
 go to browser and public ip:8080
 
-### ${\color{blue} \textbf{SetUp} \textbf{Student}  \ \textbf{Applicationt}}$
+### $${\color{blue} \textbf{SetUp} \textbf{Student}  \ \textbf{Applicationt}}$$
 ````
 yum install git -y 
 git clone https://github.com/abhipraydhoble/Student-App-Project.git 
 cd Student-App-Project 
 ````
-$\color{red}{Copy \ file \ from \ git \ directory \ to \ Tomcat}$
+$$\color{red}{Copy \ file \ from \ git \ directory \ to \ Tomcat}$$
 
 ````
 cp Student-App-Project/student.war apache-tomcat-8.5.93/webapps/ 
 cp Student-App-Project/mysql-connector.jar apache-tomcat-8.5.93/lib/ 
 ````
-### ${\color{blue} \textbf{Create} \textbf{Database}  \ \textbf{in} \ \textbf{RDS}}$
+### $${\color{blue} \textbf{Create} \textbf{Database}  \ \textbf{in} \ \textbf{RDS}}$$
 Go to RDS
 download mariadb-server using  below command
 
@@ -70,7 +70,7 @@ systemctl enable mariadb
 systemctl status mariadb
 ````
 
-### ${\color{blue} \textbf{Log} \textbf{Into}  \ \textbf{Database}}$
+### $${\color{blue} \textbf{Log} \textbf{Into}  \ \textbf{Database}}$$
 
 ````
 mysql -h "database-1.cxqukacgq5pj.us-east-1.rds.amazonaws.com"   -u admin -pPasswd123$
@@ -83,7 +83,7 @@ create database  studentapp;
 use studentapp;
 ```
  
-#### ${\color{blue} \textbf{Create} \textbf{Table}  \ \textbf{in} \ \textbf{DB}}$
+#### $${\color{blue} \textbf{Create} \textbf{Table}  \ \textbf{in} \ \textbf{DB}}$$
 
 ```sql
  CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,  
@@ -121,11 +121,15 @@ add below line [connection string] at line 21
 3.DB-ENDPOINT  
 4.DATABASE Name 
 
-$\color{blue}{Start \ tomcat}$
+$$\color{blue}{Start \ tomcat}$$
 ````
 cd apache-tomcat-8.5.93/bin
 ./catalina.sh start or  sh catalina.sh start
 ````
 
-- $\color{red}{google hit}$
-IP:8080/student
+- $$\color{red}{google hit}$$
+  
+ **54.255.223.65:8080/student**
+ 
+![image](https://github.com/user-attachments/assets/4f6c67f4-e911-45ca-a7b7-c104316b6982)
+
