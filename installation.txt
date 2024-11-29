@@ -7,7 +7,7 @@ application/command : git, unzip
 --------------------------------------------------------------------------------------
 
 download mysql/mariadb
-#yum install mariadb-server -y
+#yum install mariadb105-server -y
 #systemctl start mariadb 
 #systemctl enable mariadb 
 #mysql_secure_installation
