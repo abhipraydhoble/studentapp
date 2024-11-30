@@ -47,17 +47,12 @@ sh catalina.sh stop
 ````
 go to browser and public ip:8080
 
-### $${\color{blue} \textbf{SetUp} \textbf{Student}  \ \textbf{Applicationt}}$$
+### download student.war
 ````
-yum install git -y 
-git clone https://github.com/abhipraydhoble/Student-App-Project.git 
-cd Student-App-Project 
+curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 ````
-$$\color{red}{Copy \ file \ from \ git \ directory \ to \ Tomcat}$$
-
 ````
-cp Student-App-Project/student.war apache-tomcat-8.5.93/webapps/ 
-cp Student-App-Project/mysql-connector.jar apache-tomcat-8.5.93/lib/ 
+curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar 
 ````
 ### $${\color{blue} \textbf{Create} \textbf{Database}  \ \textbf{in} \ \textbf{RDS}}$$
 Go to RDS
