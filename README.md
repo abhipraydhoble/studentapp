@@ -48,9 +48,11 @@ sh catalina.sh stop
 go to browser and public ip:8080
 
 ### download student.war
+### go to webapps directory and paste this link
 ````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 ````
+### go to lib directory and paste this link
 ````
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar 
 ````
