@@ -22,7 +22,7 @@ $$\color{red}{Connect \ to \ instance:}$$
 
 ![cli](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/0e6244e1-489c-42c1-ae89-27c8b7c37792)
 
-- $$\color{red}{install \ java }$$
+- $$\color{red}{install \ java }$$ 
 ````
 yum install java-1.8* -y 
 ````
