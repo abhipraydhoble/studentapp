@@ -32,10 +32,10 @@ Search tomcat 8 download  on browser
 ![tomcat](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/8e622609-b7df-4f26-b8e3-e787e5e16c95)
 
  ````
-wget  https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.zip
+wget  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.zip
 
-unzip apache-tomcat-8.5.99.zip 
-cd  apache-tomcat-8.5.99.zip 
+unzip apache-tomcat-9.0.108.zip
+cd  apache-tomcat-9.0.108 
 cd bin 
 [catalina.sh  -->this file is neccessary to start tomcat] 
 chmod +x catalina.sh     [ give execute permission to file] 
