@@ -112,6 +112,8 @@ add below line [connection string] at line 21
                url="jdbc:mysql://DB-ENDPOINT:3306/DATABASE"/>
 
 ````
+<img width="1901" height="387" alt="image" src="https://github.com/user-attachments/assets/130a5ba6-90f8-4883-b5ca-96568d324f7d" />
+
 * Change  
 1.Username  
 2.Password   
