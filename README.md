@@ -139,9 +139,9 @@ sh catalina.sh start
 
 <img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/a1adae20-ec85-472d-9c93-153a7bb71ae0" />
 
+<img width="1917" height="345" alt="image" src="https://github.com/user-attachments/assets/9a037325-a902-4d6f-976c-c4b371caa317" />
 
 
 
  
-![image](https://github.com/user-attachments/assets/4f6c67f4-e911-45ca-a7b7-c104316b6982)
 
