@@ -1,26 +1,24 @@
 # $${\color{red} \textbf{Project}: \textbf{Student}  \ \textbf{App}}$$
 
 
-### $$\color{{green} \ \textbf{Prerequisite:}}$$    
-- Ec2 instance 
-- Java-1.8 
-- Tomcat 
-- Git 
-- RDS 
-
-### $${\color{blue} \textbf{Launch} \textbf{EC2}  \ \textbf{Instance}}$$
-Allow Ports security group: 
-22 = SSH 
-8080 = Tomcat 
-3306 = Mysql / Mariadb
+## 1. Create Security Group and add following ports
+- 80 = HTTP
+- 22 = SSH 
+- 8080 = Tomcat 
+- 3306 = Mysql / Mariadb
 
 ![instance](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/d7851745-1bfe-4f92-b7bb-18555f2dfd45)
 
-$$\color{red}{Connect \ to \ instance:}$$
+## 2. Launch ec2 instance
 
 ![connect](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/727778ca-e9ee-43c9-ab85-ff055f94d4a2)
 
 ![cli](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/0e6244e1-489c-42c1-ae89-27c8b7c37792)
+
+
+
+
+## 3. Go to RDS Service
 
 - $$\color{red}{install \ java }$$ 
 ````
