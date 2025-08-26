@@ -7,56 +7,21 @@
 - 8080 = Tomcat 
 - 3306 = Mysql / Mariadb
 
-![instance](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/d7851745-1bfe-4f92-b7bb-18555f2dfd45)
+
 
 ## 2. Launch ec2 instance
 
-![connect](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/727778ca-e9ee-43c9-ab85-ff055f94d4a2)
-
-![cli](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/0e6244e1-489c-42c1-ae89-27c8b7c37792)
+<img width="1920" height="712" alt="image" src="https://github.com/user-attachments/assets/07bd79aa-85cd-44af-ba14-2b479bb911f0" />
 
 
 
+## 3. Go to RDS Service and create DB instance
 
-## 3. Go to RDS Service
+<img width="1920" height="716" alt="image" src="https://github.com/user-attachments/assets/385b90ab-165a-4a98-9b42-eb3635db3551" />
 
-- $$\color{red}{install \ java }$$ 
-````
-yum install java-1.8* -y 
-````
-- $$\color{red}{Install \ Tomcat }$$
-Search tomcat 8 download  on browser
+## 4. SSH into ec2 instnce
 
-![tomcat](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/8e622609-b7df-4f26-b8e3-e787e5e16c95)
-
- ````
-wget  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.zip
-
-unzip apache-tomcat-9.0.108.zip
-cd  apache-tomcat-9.0.108 
-cd bin 
-[catalina.sh  -->this file is neccessary to start tomcat] 
-chmod +x catalina.sh     [ give execute permission to file] 
-````
-### $${\color{blue} \textbf{Start} \textbf{Stop}  \ \textbf{Tomcat}}$$
-````
-sh catalina.sh start   [ tomcat started ]
-sh catalina.sh stop 
-````
-go to browser and public ip:8080
-
-### download student.war
-### go to webapps directory and paste this link
-````
-curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
-````
-### go to lib directory and paste this link
-````
-curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar 
-````
-### $${\color{blue} \textbf{Create} \textbf{Database}  \ \textbf{in} \ \textbf{RDS}}$$
-Go to RDS
-download mariadb-server using  below command
+**Download mariadb-server using  below command**
 
 ````
 yum install mariadb105-server -y
@@ -65,20 +30,27 @@ systemctl enable mariadb
 systemctl status mariadb
 ````
 
-### $${\color{blue} \textbf{Log} \textbf{Into}  \ \textbf{Database}}$$
+## log in into DB-instance
 
 ````
-mysql -h "database-1.cxqukacgq5pj.us-east-1.rds.amazonaws.com"   -u admin -pPasswd123$
+mysql -h "rds-endpoint"   -u admin -pPasswd123$
 ````
 Note: replace rds-endpoint with actual endpoint value
 
+<img width="1918" height="792" alt="image" src="https://github.com/user-attachments/assets/7bf8db48-9e71-4341-b5a1-61706543e65c" />
+
+## Create database 
+````
+create database  studentapp;
+````
 ```sql
 show databases;
-create database  studentapp;
-use studentapp;
 ```
+````
+use studentapp;
+````
  
-#### $${\color{blue} \textbf{Create} \textbf{Table}  \ \textbf{in} \ \textbf{DB}}$$
+## Create table
 
 ```sql
  CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,  
@@ -91,18 +63,50 @@ use studentapp;
 	PRIMARY KEY (student_id)  
 );
 ```
-Logout from database:
+## Logout from database:
 ```sql
  exit
 ```
 
+## 5. Set up Application
+
+### Install Java
+````
+yum install java-1.8* -y 
+````
+
+### Install tomcat
+
+![tomcat](https://github.com/abhipraydhoble/Project-Student-App/assets/122669982/8e622609-b7df-4f26-b8e3-e787e5e16c95)
+
+````
+wget  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.zip
+````
+````
+unzip apache-tomcat-9.0.108.zip
+````
+````
+cd  apache-tomcat-9.0.108
+````
+
+### go to webapps directory and paste this link to download student.war
+````
+curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
+````
+### go to lib directory and paste this link
+````
+curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar 
+````
+
 ## Modify apache-tomcat/conf/context.xml file
 
 ```
-cd apache-tomcat-8.5.93/conf
+cd /conf
+```
+````
 vim context.xml
 ````
-add below line [connection string] at line 21
+
 ````
  <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
                maxTotal="100" maxIdle="30" maxWaitMillis="10000"
@@ -116,17 +120,28 @@ add below line [connection string] at line 21
 1.Username  
 2.Password   
 3.DB-ENDPOINT  
-4.DATABASE Name 
-
-$$\color{blue}{Start \ tomcat}$$
-````
-cd apache-tomcat-8.5.93/bin
-./catalina.sh start or  sh catalina.sh start
-````
-
-- $$\color{red}{google hit}$$
+4.DATABASE Name
   
- **54.255.223.65:8080/student**
+### go to bin dir abd assign +x permission to catakina.sh
+````
+cd bin
+````
+````
+chmod +x catalina.sh     
+````
+### Start Tomcat
+````
+sh catalina.sh start
+````
+
+
+## 6. go to browser and public ip:8080/student
+
+<img width="1920" height="948" alt="image" src="https://github.com/user-attachments/assets/a1adae20-ec85-472d-9c93-153a7bb71ae0" />
+
+
+
+
  
 ![image](https://github.com/user-attachments/assets/4f6c67f4-e911-45ca-a7b7-c104316b6982)
 
