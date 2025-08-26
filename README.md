@@ -98,7 +98,7 @@ curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/student.war
 curl -O https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar 
 ````
 
-## Modify apache-tomcat/conf/context.xml file
+## Modify context.xml file to setup database connection with database
 
 ```
 cd /conf
